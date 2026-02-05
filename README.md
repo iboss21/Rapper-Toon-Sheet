@@ -151,12 +151,16 @@ docker build -f apps/web/Dockerfile -t rapper-toon-web .
 
 ## Coolify Deployment
 
+This repository includes a `nixpacks.toml` configuration file for optimized Coolify deployments.
+
+> **📝 For detailed instructions**, see [NIXPACKS.md](./NIXPACKS.md) and [DEPLOYMENT.md](./DEPLOYMENT.md)
+
+**Quick Setup:**
+
 1. Push your code to GitHub
 2. In Coolify, create a new application from Git repository
-3. Configure build settings:
-   - Build command: `pnpm install && pnpm build`
-   - Start command: `pnpm start`
-4. Add environment variables from `.env.example`
+3. Nixpacks will auto-detect and use the `nixpacks.toml` configuration
+4. Add required environment variables (see below)
 5. Add a volume mapping for persistent storage:
    - `/data` → your persistent volume
 6. Deploy!
@@ -169,11 +173,11 @@ Required:
 - `IMAGE_PROVIDER=openai` or `replicate`
 - `OPENAI_API_KEY=your-key` (if using OpenAI)
 - `REPLICATE_API_TOKEN=your-token` (if using Replicate)
+- `WEB_URL=https://your-frontend-domain.com`
 
 Optional:
 - `STORAGE_MODE=local` (default) or `s3`
 - `S3_ENDPOINT`, `S3_BUCKET`, `S3_ACCESS_KEY`, `S3_SECRET_KEY` (if using S3)
-- `WEB_URL=https://your-domain.com`
 - `RATE_LIMIT_WINDOW_MS=900000`
 - `RATE_LIMIT_MAX_REQUESTS=10`
 

@@ -100,13 +100,16 @@ docker run -d -p 80:80 rapper-toon-web:latest
 
 ## Coolify Deployment
 
-Coolify provides a simple way to deploy directly from GitHub.
+Coolify provides a simple way to deploy directly from GitHub using Nixpacks.
+
+> **📝 Note**: For detailed Nixpacks configuration, see [NIXPACKS.md](./NIXPACKS.md)
 
 ### Step 1: Prepare Repository
 
 1. Push your code to GitHub
 2. Ensure `.env.example` has all required variables
 3. Make sure your repository is public or Coolify has access
+4. The repository includes a `nixpacks.toml` file for optimized builds
 
 ### Step 2: Create Application in Coolify
 
@@ -118,13 +121,17 @@ Coolify provides a simple way to deploy directly from GitHub.
 
 ### Step 3: Configure Build
 
-**Build Settings:**
-- Build Pack: `nixpacks`
-- Build Command: `pnpm install && pnpm build`
-- Start Command: `pnpm start`
+**Using Nixpacks (Recommended):**
+- Build Pack: `nixpacks` (auto-detected)
 - Port: `3001`
+- Health Check Path: `/health`
 
-**Or use Dockerfile:**
+The `nixpacks.toml` file automatically configures:
+- Node.js 18 with pnpm
+- Monorepo build process
+- Production start command
+
+**Alternative - Using Dockerfile:**
 - Build Method: `Dockerfile`
 - Dockerfile: `apps/api/Dockerfile`
 - Port: `3001`
