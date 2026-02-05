@@ -1,0 +1,23 @@
+# Nixpacks configuration for Rapper Toon Sheet API deployment
+# This configures the build and runtime for Coolify/Nixpacks deployments
+
+[phases.setup]
+nixPkgs = ["nodejs_18", "pnpm"]
+
+[phases.install]
+cmds = [
+  "pnpm install --frozen-lockfile --prod=false"
+]
+
+[phases.build]
+cmds = [
+  "pnpm --filter @rapper-toon-sheet/shared build",
+  "pnpm --filter @rapper-toon-sheet/api build"
+]
+
+[start]
+cmd = "node apps/api/dist/index.js"
+
+[variables]
+NODE_ENV = "production"
+PORT = "3001"
