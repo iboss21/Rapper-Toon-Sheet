@@ -2,7 +2,7 @@
 # This configures the build and runtime for Coolify/Nixpacks deployments
 
 [phases.setup]
-nixPkgs = ["nodejs_18", "pnpm"]
+nixPkgs = ["nodejs_22", "pnpm"]
 
 [phases.install]
 cmds = [

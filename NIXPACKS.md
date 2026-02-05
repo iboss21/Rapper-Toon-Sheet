@@ -11,14 +11,14 @@ The repository includes a `nixpacks.toml` configuration file that optimizes the 
 ### nixpacks.toml
 
 The `nixpacks.toml` file configures:
-- **Node.js 18**: Matches the version specified in package.json and Dockerfiles
+- **Node.js 22**: Matches the version specified in package.json and Dockerfiles
 - **pnpm**: Uses the pnpm package manager for workspace support
 - **Optimized Build**: Builds only the shared package and API (not the web frontend)
 - **Production Start**: Runs the API server directly
 
 ### Build Process
 
-1. **Setup Phase**: Installs Node.js 18 and pnpm
+1. **Setup Phase**: Installs Node.js 22 and pnpm
 2. **Install Phase**: Installs all dependencies using `pnpm install --frozen-lockfile`
 3. **Build Phase**: 
    - Builds shared package: `pnpm --filter @rapper-toon-sheet/shared build`
@@ -205,7 +205,7 @@ cmds = [
 
 # Example: Change Node.js version
 [phases.setup]
-nixPkgs = ["nodejs_20", "pnpm"]
+nixPkgs = ["nodejs_22", "pnpm"]
 ```
 
 ## Differences from Docker Deployment
