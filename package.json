@@ -1,0 +1,21 @@
+{
+  "name": "rapper-toon-sheet",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Generate stylized cartoon-realism character reference sheets from photos",
+  "scripts": {
+    "dev": "pnpm --filter api dev & pnpm --filter web dev",
+    "build": "pnpm --filter shared build && pnpm --filter api build && pnpm --filter web build",
+    "start": "pnpm --filter api start",
+    "clean": "rm -rf apps/*/dist apps/*/node_modules packages/*/dist packages/*/node_modules node_modules"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=8.0.0"
+  },
+  "packageManager": "pnpm@8.15.0"
+}

@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: apps/api/Dockerfile
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=development
+      - PORT=3001
+      - WEB_URL=http://localhost:5173
+      - STORAGE_MODE=local
+      - OUTPUT_DIR=/data/outputs
+      - IMAGE_PROVIDER=${IMAGE_PROVIDER:-openai}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - REPLICATE_API_TOKEN=${REPLICATE_API_TOKEN}
+    volumes:
+      - ./data/outputs:/data/outputs
+      - ./apps/api/src:/app/apps/api/src
+      - ./packages/shared/src:/app/packages/shared/src
+    command: pnpm --filter @rapper-toon-sheet/api dev
+    networks:
+      - rapper-toon-network
+
+  web:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      target: base
+    ports:
+      - "5173:5173"
+    environment:
+      - VITE_API_URL=http://localhost:3001/api
+    volumes:
+      - ./apps/web/src:/app/apps/web/src
+      - ./packages/shared/src:/app/packages/shared/src
+    command: pnpm --filter @rapper-toon-sheet/web dev
+    depends_on:
+      - api
+    networks:
+      - rapper-toon-network
+
+networks:
+  rapper-toon-network:
+    driver: bridge
+
+volumes:
+  outputs:
