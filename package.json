@@ -7,7 +7,8 @@
     "dev": "pnpm --filter api dev & pnpm --filter web dev",
     "build": "pnpm --filter shared build && pnpm --filter api build && pnpm --filter web build",
     "start": "pnpm --filter api start",
-    "clean": "rm -rf apps/*/dist apps/*/node_modules packages/*/dist packages/*/node_modules node_modules"
+    "clean": "rm -rf apps/*/dist apps/*/node_modules packages/*/dist packages/*/node_modules node_modules",
+    "verify": "./scripts/verify-deployment-ready.sh"
   },
   "workspaces": [
     "apps/*",
