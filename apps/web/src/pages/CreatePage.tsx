@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { GenerateOptions } from '@rapper-toon-sheet/shared';
 import { ImageUpload } from '@/components/ImageUpload';
 import { OptionsForm } from '@/components/OptionsForm';

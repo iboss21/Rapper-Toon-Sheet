@@ -6,7 +6,7 @@ export class LocalStorageProvider implements StorageProvider {
   private outputDir: string;
   private baseUrl: string;
 
-  constructor(outputDir: string = '/data/outputs', baseUrl: string = '/outputs') {
+  constructor(outputDir: string = '/tmp/rapper-toon-outputs', baseUrl: string = '/outputs') {
     this.outputDir = outputDir;
     this.baseUrl = baseUrl;
   }

@@ -53,7 +53,7 @@ async function createApp() {
     });
     logger.info('Using S3 storage provider');
   } else {
-    const outputDir = process.env.OUTPUT_DIR || '/data/outputs';
+    const outputDir = process.env.OUTPUT_DIR || '/tmp/rapper-toon-outputs';
     storageProvider = new LocalStorageProvider(outputDir, '/outputs');
     await (storageProvider as LocalStorageProvider).init();
     

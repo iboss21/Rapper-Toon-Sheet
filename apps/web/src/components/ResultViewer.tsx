@@ -1,14 +1,12 @@
 import { useState } from 'react';
 import { Download, ZoomIn, ZoomOut, X } from 'lucide-react';
-import { cn } from '@/lib/utils';
 
 interface ResultViewerProps {
   imageUrl: string;
   onDownload: () => void;
-  onClose?: () => void;
 }
 
-export function ResultViewer({ imageUrl, onDownload, onClose }: ResultViewerProps) {
+export function ResultViewer({ imageUrl, onDownload }: ResultViewerProps) {
   const [zoom, setZoom] = useState(100);
   const [showFullscreen, setShowFullscreen] = useState(false);
 
