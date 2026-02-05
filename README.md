@@ -74,7 +74,7 @@ rapper-toon-sheet/
 
 ### Prerequisites
 
-- Node.js 18+
+- Node.js 22+
 - pnpm 8+
 - OpenAI API key or Replicate API token
 
