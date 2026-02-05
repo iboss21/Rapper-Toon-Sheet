@@ -153,7 +153,9 @@ docker build -f apps/web/Dockerfile -t rapper-toon-web .
 
 This repository includes a `nixpacks.toml` configuration file for optimized Coolify deployments.
 
-> **📝 For detailed instructions**, see [NIXPACKS.md](./NIXPACKS.md) and [DEPLOYMENT.md](./DEPLOYMENT.md)
+> **📝 Quick Start**: [COOLIFY_QUICKSTART.md](./COOLIFY_QUICKSTART.md) - 5-minute deployment guide  
+> **📋 Full Guide**: [DEPLOYMENT.md](./DEPLOYMENT.md) and [NIXPACKS.md](./NIXPACKS.md)  
+> **✅ Verification**: [DEPLOYMENT_VERIFICATION.md](./DEPLOYMENT_VERIFICATION.md)
 
 **Quick Setup:**
 
@@ -271,6 +273,18 @@ The AI prompt is customizable in `apps/api/src/promptTemplates.ts`. The template
 3. **Type Safety**: Shared types ensure consistency between frontend and backend
 4. **Image Processing**: Client-side compression reduces upload times
 5. **Error Handling**: Comprehensive error messages for debugging
+6. **Deployment Verification**: Run `./scripts/verify-deployment-ready.sh` before deploying
+
+## Documentation
+
+- **[PRD.md](./PRD.md)** - Complete Product Requirements Document
+- **[API.md](./API.md)** - API endpoints reference
+- **[DEPLOYMENT.md](./DEPLOYMENT.md)** - Comprehensive deployment guide
+- **[COOLIFY_QUICKSTART.md](./COOLIFY_QUICKSTART.md)** - 5-minute Coolify deployment
+- **[DEPLOYMENT_VERIFICATION.md](./DEPLOYMENT_VERIFICATION.md)** - Deployment checklist
+- **[NIXPACKS.md](./NIXPACKS.md)** - Nixpacks configuration details
+- **[PROJECT_SUMMARY.md](./PROJECT_SUMMARY.md)** - Implementation summary
+- **[SECURITY.md](./SECURITY.md)** - Security guidelines
 
 ## Contributing
 
